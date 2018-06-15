@@ -382,6 +382,8 @@ endif
 	# On FreeBSD, remove the build's libdir from each library's RPATH
 ifeq ($(OS),FreeBSD)
 	$(JULIAHOME)/contrib/fixup-rpath.sh $(build_depsbindir)/patchelf $(DESTDIR)$(libdir) $(build_libdir)
+	$(JULIAHOME)/contrib/fixup-rpath.sh $(build_depsbindir)/patchelf $(DESTDIR)$(private_libdir) $(build_libdir)
+	$(JULIAHOME)/contrib/fixup-rpath.sh $(build_depsbindir)/patchelf $(DESTDIR)$(bindir) $(build_libdir)
 endif
 
 	mkdir -p $(DESTDIR)$(sysconfdir)
